@@ -33,6 +33,7 @@
             android:id="@+id/txtPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:ems="10"
             android:inputType="textPassword" />
 
@@ -59,8 +60,7 @@
             android:layout_margin="10dp"
             android:gravity="center"
             android:onClick="register"
-            android:text="Registrar"
-            android:visibility="gone" />
+            android:text="Registrar" />
 
 
     </LinearLayout>
