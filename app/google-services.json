@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "266583345443",
+    "firebase_url": "https://hotelmascotas-f7ab5.firebaseio.com",
+    "project_id": "hotelmascotas-f7ab5",
+    "storage_bucket": "hotelmascotas-f7ab5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:266583345443:android:d6fbcb46e5006762072496",
+        "android_client_info": {
+          "package_name": "com.example.hotelmascotas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "266583345443-t89u9dsdtus4ebrolo3sg9v3k4e47bbr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hotelmascotas",
+            "certificate_hash": "494c25ac4da40e92593e17f029f3cbbabc03d2ff"
+          }
+        },
+        {
+          "client_id": "266583345443-vr403itb7aenmrqnvqmsf0t0fm8qnesi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRc3qeTs4wsaXSI7YnmvBH9Dit7zpXBsk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "266583345443-vr403itb7aenmrqnvqmsf0t0fm8qnesi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
