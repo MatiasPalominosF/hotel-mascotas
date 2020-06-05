@@ -12,22 +12,21 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:indeterminate="true"/>
+        android:indeterminate="true"
+        android:visibility="gone" />
 
     <EditText
         android:id="@+id/txtEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name" />
+        android:inputType="textPersonName" />
 
     <Button
-        android:onClick="send"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Enviar contraseña"
         android:background="@color/colorPrimary"
-        android:textColor="@android:color/white"/>
+        android:onClick="send"
+        android:text="Enviar contraseña"
+        android:textColor="@android:color/white" />
 </LinearLayout>
