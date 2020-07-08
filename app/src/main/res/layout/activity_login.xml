@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/image"
     android:orientation="vertical"
     tools:context=".LoginActivity">
 
@@ -11,6 +12,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="173dp"
+            app:srcCompat="@drawable/logo" />
 
         <ProgressBar
             android:id="@+id/progressBar"
@@ -22,29 +29,45 @@
 
         <EditText
             android:id="@+id/txtUser"
-            android:layout_width="match_parent"
+            android:layout_width="380dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:ems="10"
             android:hint="Usuario"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textColor="@android:color/white"
+            android:textColorHint="#FFFFFF" />
 
         <EditText
             android:id="@+id/txtPassword"
-            android:layout_width="match_parent"
+            android:layout_width="380dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:ems="10"
-            android:inputType="textPassword" />
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:textColor="@android:color/white"
+            android:textColorHighlight="?android:attr/textColorHighlight"
+            android:textColorHint="#FFFFFF" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/btn_type2"
             android:onClick="login"
             android:text="Iniciar sesión"
-            android:textColor="@android:color/white" />
+            android:textColor="@drawable/txt_btn_type2" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/btn_type1"
+            android:gravity="center"
+            android:onClick="register"
+            android:text="Registrar"
+            android:textColor="@drawable/txt_btn_type1" />
 
         <TextView
             android:layout_width="match_parent"
@@ -52,16 +75,11 @@
             android:layout_margin="10dp"
             android:gravity="center"
             android:onClick="forgotPassword"
-            android:text="¿Olvidaste tu contraseña?" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:gravity="center"
-            android:onClick="register"
-            android:text="Registrar" />
+            android:text="¿Olvidaste tu contraseña?"
+            android:textColor="#FFFFFF"
+            android:textColorLink="#FFFFFF" />
 
 
     </LinearLayout>
-</FrameLayout>
+
+</LinearLayout>
