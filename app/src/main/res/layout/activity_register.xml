@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_color"
     android:orientation="vertical"
     tools:context=".RegisterActivity">
 
@@ -11,9 +12,9 @@
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
-        android:indeterminate="true"
         android:layout_height="wrap_content"
-        android:visibility="gone"/>
+        android:indeterminate="true"
+        android:visibility="gone" />
 
     <EditText
         android:id="@+id/txtName"
@@ -22,7 +23,10 @@
         android:layout_margin="10dp"
         android:ems="10"
         android:hint="Nombre"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textColor="@android:color/white"
+        android:textColorHighlight="?android:attr/textColorHighlight"
+        android:textColorHint="#FFFFFF" />
 
     <EditText
         android:id="@+id/txtLastName"
@@ -31,7 +35,10 @@
         android:layout_margin="10dp"
         android:ems="10"
         android:hint="Apellido"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textColor="@android:color/white"
+        android:textColorHighlight="?android:attr/textColorHighlight"
+        android:textColorHint="#FFFFFF" />
 
     <EditText
         android:id="@+id/txtEmail"
@@ -40,7 +47,10 @@
         android:layout_margin="10dp"
         android:ems="10"
         android:hint="Email"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        android:textColor="@android:color/white"
+        android:textColorHighlight="?android:attr/textColorHighlight"
+        android:textColorHint="#FFFFFF" />
 
     <EditText
         android:id="@+id/txtPassword"
@@ -49,13 +59,16 @@
         android:layout_margin="10dp"
         android:ems="10"
         android:hint="Password"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:textColor="@android:color/white"
+        android:textColorHighlight="?android:attr/textColorHighlight"
+        android:textColorHint="#FFFFFF" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/btn_type2"
         android:onClick="register"
         android:text="Crear cuenta"
-        android:textColor="@android:color/white" />
+        android:textColor="@drawable/txt_btn_type2" />
 </LinearLayout>
