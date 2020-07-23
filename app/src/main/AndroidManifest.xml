@@ -9,7 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ForgotPassActivity"></activity>
+        <activity android:name=".inicioActivity2"></activity>
+        <activity
+            android:name=".ActivityInicio"
+            android:label="@string/title_activity_main2" />
+        <activity
+            android:name=".ui.login.LoginActivity2"
+            android:label="@string/title_activity_login2" />
+        <activity
+            android:name=".startupActivity2"
+            android:label="@string/title_activity_startup2"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ForgotPassActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".LoginActivity">
