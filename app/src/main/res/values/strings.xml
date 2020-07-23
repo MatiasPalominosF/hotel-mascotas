@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">hotelMascotas</string>
+    <string name="que_desea_buscar">¿Que desea buscar?</string>
+    <string name="acerca_de">Acerca de</string>
+    <string name="ingresar_ubicaci_n">Ingresar ubicación</string>
+    <string name="otras_opciones">Otras opciones</string>
+    <string name="salir">Salir</string>
+    <string name="todo">TODO</string>
+    <string name="agrega_m_scota">agrega máscota</string>
+    <string name="mensajear_h_roe">mensajear héroe</string>
+    <string name="editar_usuario">Editar usuario</string>
+    <string name="hospedaje_mascota">Hospedaje mascota</string>
 </resources>
