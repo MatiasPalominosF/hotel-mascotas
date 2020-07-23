@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">hotelMascotas</string>
-<<<<<<< HEAD
+
     <string name="que_desea_buscar">¿Que desea buscar?</string>
     <string name="acerca_de">Acerca de</string>
     <string name="ingresar_ubicaci_n">Ingresar ubicación</string>
@@ -11,7 +11,7 @@
     <string name="mensajear_h_roe">mensajear héroe</string>
     <string name="editar_usuario">Editar usuario</string>
     <string name="hospedaje_mascota">Hospedaje mascota</string>
-=======
+
     <string name="title_activity_startup2">startupActivity2</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -36,5 +36,4 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
->>>>>>> Joaquin
 </resources>
