@@ -6,6 +6,11 @@
     <color name="colorPrimaryText">#212121</color>
     <color name="colorBackground">#ECECEC</color>
     <color name="colorSemiDark">#90000000</color>
+    <color name="solidCircle">#80FFFFFF</color>
+    <color name="borderCircle">#30FFFFFF</color>
+    <color name="gradEnd">#FF5252</color>
+    <color name="gradStart">#FFA052</color>
+
 
     <color name="colorPrimaryN">#131EEA</color>
     <color name="colorPrimaryDarkN">#131EEA</color>
