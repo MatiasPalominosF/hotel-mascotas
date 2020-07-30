@@ -122,7 +122,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:contentDescription="@string/app_name"
-            android:src="@drawable/ic_email"
+            android:src="@drawable/ic_account"
 
             android:tint="@color/colorTextHint"
             app:layout_constraintBottom_toBottomOf="@id/txtName"
@@ -164,7 +164,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:contentDescription="@string/app_name"
-            android:src="@drawable/ic_email"
+            android:src="@drawable/ic_account"
             android:tint="@color/colorTextHint"
             app:layout_constraintBottom_toBottomOf="@id/txtLastName"
             app:layout_constraintStart_toStartOf="@id/txtLastName" />

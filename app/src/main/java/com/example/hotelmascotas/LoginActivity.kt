@@ -45,7 +45,7 @@ class LoginActivity : AppCompatActivity() {
         val user: String = txtUser.text.toString()
         val password: String = txtPassword.text.toString()
 
-        if (!TextUtils.isEmpty(user) && !TextUtils.isEmpty(password)) {
+        if (validarCamposInicioSesion(user, password)) {
             progressBar.visibility = View.VISIBLE
             auth.signInWithEmailAndPassword(user, password).addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
@@ -56,6 +56,22 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun validarCamposInicioSesion(
+        correo: String,
+        contrasena: String
+    ): Boolean {
+        if (contrasena.isEmpty()) {
+            this.txtPassword.setError("Campo requerido")
+            this.txtPassword.requestFocus()
+            return false
+        } else if (correo.isEmpty()) {
+            this.txtUser.setError("Campo requerido")
+            this.txtUser.requestFocus()
+            return false
+        }
+        return true
     }
 
     private fun action() {
