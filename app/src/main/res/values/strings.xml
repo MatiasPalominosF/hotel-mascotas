@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">hotelMascotas</string>
+    <string name="inicio">Inicio</string>
+    <string name="menu">Menú</string>
+    <string name="mascotas">Mis mascotas</string>
+    <string name="pedidos">Añadir mascota</string>
+    <string name="bienvenido_kona">¡Bienvenido Kona!</string>
+    <string name="buscar">Buscar</string>
+    <string name="alojamiento">Alojamiento</string>
+    <string name="dia_y_noche">Día y noche</string>
+    <string name="guarderia">Guardería</string>
+    <string name="durante_el_dia">Durante el día</string>
+    <string name="paseos">Paseos</string>
+    <string name="paseo_matutino">Paseo matutino</string>
+    <string name="aprendizaje">Aprendizaje</string>
+    <string name="entrenamiento">Entrenamiento</string>
 </resources>

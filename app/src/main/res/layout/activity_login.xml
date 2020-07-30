@@ -34,7 +34,7 @@
             android:layout_margin="10dp"
             android:ems="10"
             android:hint="Correo"
-            android:inputType="textPersonName"
+            android:inputType="textEmailAddress"
             android:textColor="@android:color/white"
             android:textColorHint="#FFFFFF" />
 
