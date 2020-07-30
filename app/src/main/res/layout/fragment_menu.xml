@@ -34,7 +34,7 @@
                 android:src="@drawable/grad_header_menu"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <de.hdodenhof.circleimageview.CircleImageView
+            <ImageView
                 android:id="@+id/photo_user"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
@@ -58,7 +58,6 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/imageHeader" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-        
 
 
     </ScrollView>
