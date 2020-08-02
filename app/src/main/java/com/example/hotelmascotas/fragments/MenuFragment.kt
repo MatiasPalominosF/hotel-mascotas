@@ -83,7 +83,7 @@ class MenuFragment : Fragment() {
     }
 
     private fun closeFrament() {
-        getActivity()?.getFragmentManager()?.popBackStack()
+        getFragmentManager()?.beginTransaction()?.remove(this)?.commit();
     }
 
 
