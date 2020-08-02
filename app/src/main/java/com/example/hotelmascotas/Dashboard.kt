@@ -2,6 +2,7 @@ package com.example.hotelmascotas
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.hotelmascotas.fragments.HomeFragment
 import com.example.hotelmascotas.fragments.MenuFragment
@@ -37,5 +38,9 @@ class Dashboard : AppCompatActivity() {
             commit()
         }
 
+    private fun logout(view: View) {
+        print("Se presionó el botón para salir")
+
+    }
 
 }
