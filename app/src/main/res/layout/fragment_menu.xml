@@ -20,23 +20,26 @@
         android:orientation="vertical">
 
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageViewMenu"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginTop="20dp"
             android:src="@drawable/photo_user" />
 
         <TextView
+            android:id="@+id/textViewUserName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:gravity="center"
-            android:text="@string/user_name"
+            android:text=""
             android:textColor="@color/white"
             android:textSize="25sp"
             android:textStyle="bold" />
     </LinearLayout>
 
     <FrameLayout
+        android:id="@+id/edit_profile"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="80dp"
@@ -156,6 +159,7 @@
                 android:textSize="20sp"
                 android:textStyle="normal" />
         </LinearLayout>
+
         <View
             android:layout_width="fill_parent"
             android:layout_height="0.3dp"
@@ -163,6 +167,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="40dp"
             android:background="#AEFF5252" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -187,6 +192,7 @@
                 android:textSize="20sp"
                 android:textStyle="normal" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -213,7 +219,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/cerrarSesion"
+            android:id="@+id/cerrarSesionFR"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -237,8 +243,6 @@
                 android:textSize="20sp"
                 android:textStyle="normal" />
         </LinearLayout>
-
-
 
     </LinearLayout>
 

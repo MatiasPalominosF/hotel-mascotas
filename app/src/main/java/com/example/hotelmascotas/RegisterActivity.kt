@@ -9,9 +9,12 @@ import android.view.View
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
+import com.example.hotelmascotas.util.FirestoreUtil
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
+import java.lang.NullPointerException
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -68,9 +71,20 @@ class RegisterActivity : AppCompatActivity() {
                     if (task.isComplete) {
                         //Envía mensaje de verificación al correo
                         val user: FirebaseUser? = auth.currentUser
+                        println("USUARIO!!!!!!!!!!!!!!!: " + user?.uid.toString())
                         verifyEmail(user)
+
+                        var uidUser = user?.uid.toString()
+                        val usersDB = db.collection("users")
+                        usersDB.document(uidUser).set(users).addOnSuccessListener {
+                            Toast.makeText(this, "Usuario agregado correctamente", Toast.LENGTH_LONG).show()
+                            action()
+                        }.addOnFailureListener {
+                            println("IIIIIIIIIIIIIIIIIIIIT2: " + it)
+                        }
+
                         // Add a new document with a generated ID
-                        db.collection("users")
+                        /*db.collection("users")
                             .add(users)
                             .addOnSuccessListener { documentReference ->
                                 Log.d(
@@ -81,7 +95,7 @@ class RegisterActivity : AppCompatActivity() {
                             }
                             .addOnFailureListener { e ->
                                 Log.w("Error", "Error adding document", e)
-                            }
+                            }*/
                     }
                 }
         }
