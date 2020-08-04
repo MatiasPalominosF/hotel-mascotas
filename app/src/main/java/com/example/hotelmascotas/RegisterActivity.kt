@@ -1,20 +1,17 @@
 package com.example.hotelmascotas
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
-import com.example.hotelmascotas.util.FirestoreUtil
+import androidx.appcompat.app.AppCompatActivity
+import com.example.hotelmascotas.model.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
-import java.lang.NullPointerException
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -25,6 +22,7 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var txtPassword: EditText
     private lateinit var progressBar: ProgressBar
     private val users = hashMapOf<String?, Any?>()
+    private val users2 = User()
 
     private lateinit var db: FirebaseFirestore
 
@@ -60,6 +58,8 @@ class RegisterActivity : AppCompatActivity() {
         users.put("email", email)
         users.put("password", password)
 
+        val user2 = User(name, lastName, email, password)
+
 
         if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(lastName) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(
                 password
@@ -76,8 +76,12 @@ class RegisterActivity : AppCompatActivity() {
 
                         var uidUser = user?.uid.toString()
                         val usersDB = db.collection("users")
-                        usersDB.document(uidUser).set(users).addOnSuccessListener {
-                            Toast.makeText(this, "Usuario agregado correctamente", Toast.LENGTH_LONG).show()
+                        usersDB.document(uidUser).set(user2).addOnSuccessListener {
+                            Toast.makeText(
+                                this,
+                                "Usuario agregado correctamente",
+                                Toast.LENGTH_LONG
+                            ).show()
                             action()
                         }.addOnFailureListener {
                             println("IIIIIIIIIIIIIIIIIIIIT2: " + it)

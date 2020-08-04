@@ -1,10 +1,8 @@
 package com.example.hotelmascotas.util
 
-import com.example.hotelmascotas.model.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
-import java.lang.NullPointerException
 
 object FirestoreUtil {
     private val firestoreInstance: FirebaseFirestore by lazy { FirebaseFirestore.getInstance() }

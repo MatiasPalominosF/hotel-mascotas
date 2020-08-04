@@ -3,7 +3,6 @@ package com.example.hotelmascotas.util
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import java.lang.NullPointerException
 import java.util.*
 
 object StorageUtil {

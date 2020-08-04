@@ -1,27 +1,16 @@
 package com.example.hotelmascotas
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Patterns
 import android.view.View
 import android.widget.EditText
-import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.hotelmascotas.util.FirestoreUtil
 import com.firebase.ui.auth.AuthUI
-import com.firebase.ui.auth.ErrorCodes
-import com.firebase.ui.auth.IdpResponse
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.main.activity_login.*
-import org.jetbrains.anko.clearTask
-import org.jetbrains.anko.design.longSnackbar
-import org.jetbrains.anko.indeterminateProgressDialog
-import org.jetbrains.anko.intentFor
-import org.jetbrains.anko.newTask
 
 class LoginActivity : AppCompatActivity() {
 
