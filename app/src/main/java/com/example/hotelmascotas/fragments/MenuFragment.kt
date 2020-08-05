@@ -36,6 +36,7 @@ class MenuFragment : Fragment() {
     private lateinit var bundle: Bundle
     private lateinit var editProfileFragment: EditProfileFragment
 
+
     // TODO: Rename and change types of parameters
     private var name: String? = null
     private var lastname: String? = null
@@ -62,6 +63,8 @@ class MenuFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_menu, container, false)
 
+        println("Fragment manager of Menu: " + fragmentManager)
+
         val name = this.arguments!!.getString("name")
         val lastname = this.arguments!!.getString("lastname")
         val email = this.arguments!!.getString("email")
@@ -70,6 +73,7 @@ class MenuFragment : Fragment() {
         //Atributos para pasar datos entre fragmentos
         bundle = Bundle()
         editProfileFragment = EditProfileFragment()
+        val manager2 = activity!!.supportFragmentManager
         val manager = fragmentManager
         //Fin atributos
 
@@ -82,7 +86,7 @@ class MenuFragment : Fragment() {
         btnEditProfile.setOnClickListener {
             //TODO: Insert function that edit profile.
             if (name != null && lastname != null && email != null && password != null && manager != null) {
-                editProfile(name, lastname, email, password, editProfileFragment, manager)
+                editProfile(name, lastname, email, password, editProfileFragment, manager, manager2)
             }
         }
 
@@ -156,7 +160,8 @@ class MenuFragment : Fragment() {
         email: String,
         password: String,
         fragment: Fragment,
-        manager: FragmentManager
+        manager: FragmentManager,
+        manager2: FragmentManager
     ) {
         println("UID en profile: " + auth.uid)
 
@@ -167,14 +172,17 @@ class MenuFragment : Fragment() {
 
         fragment.arguments = bundle
 
-        println("Cosas en el fragment: " + fragment.arguments)
+        val fragTransaction2 = manager2.beginTransaction()
+        val fragTransaction = manager.beginTransaction()
 
-        val frag_transaction = manager.beginTransaction()
-        //frag_transaction.replace(R.id.linear_profile_view, fragment)
-        frag_transaction.apply {
+        fragTransaction2.replace(R.id.linear_profile_view, fragment).addToBackStack(null).commit()
+        /*fragTransaction.replace(R.id.linear_profile_view, fragment)
+            .commit()*/
+
+        /*fragTransaction.apply {
             replace(R.id.linear_profile_view, fragment)
             commit()
-        }
+        }*/
 
 
     }

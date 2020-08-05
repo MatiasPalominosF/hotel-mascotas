@@ -8,6 +8,7 @@ import com.example.hotelmascotas.fragments.HomeFragment
 import com.example.hotelmascotas.fragments.MenuFragment
 import com.example.hotelmascotas.fragments.MisMacotasFragment
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_dashboard.*
@@ -31,7 +32,6 @@ class Dashboard : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
         bundle = Bundle()
-
 
         makeCurrentFragment(homeFragment)
 
@@ -90,10 +90,9 @@ class Dashboard : AppCompatActivity() {
 
                     fragment.arguments = bundle
 
-                    supportFragmentManager.beginTransaction().apply {
-                        replace(R.id.fl_wrapper, fragment)
-                        commit()
-                    }
+                    supportFragmentManager.beginTransaction().replace(R.id.fl_wrapper, fragment)
+                        .commit()
+
 
                 }
 
@@ -102,8 +101,7 @@ class Dashboard : AppCompatActivity() {
     }
 
     private fun makeCurrentFragment(fragment: Fragment) =
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.fl_wrapper, fragment)
-            commit()
-        }
+        supportFragmentManager.beginTransaction().replace(R.id.fl_wrapper, fragment)
+            .commit()
 }
+
