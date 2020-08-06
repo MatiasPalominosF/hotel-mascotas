@@ -4,6 +4,8 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.hotelmascotas.fragments.HomeFragment
 import com.example.hotelmascotas.fragments.MenuFragment
 import com.example.hotelmascotas.fragments.MisMascotasFragment
@@ -11,6 +13,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_dashboard.*
+import org.jetbrains.anko.activityManager
 
 
 class Dashboard : AppCompatActivity() {
