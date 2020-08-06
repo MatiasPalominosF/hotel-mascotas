@@ -1,13 +1,14 @@
 package com.example.hotelmascotas.fragments
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.example.hotelmascotas.LoginActivity
@@ -29,6 +30,7 @@ private const val ARG_PARAM4 = "password"
  * create an instance of this fragment.
  */
 class MenuFragment : Fragment() {
+
 
     private lateinit var auth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
@@ -69,6 +71,7 @@ class MenuFragment : Fragment() {
         val lastname = this.arguments!!.getString("lastname")
         val email = this.arguments!!.getString("email")
         val password = this.arguments!!.getString("password")
+
 
         //Atributos para pasar datos entre fragmentos
         bundle = Bundle()
@@ -152,7 +155,6 @@ class MenuFragment : Fragment() {
                 }
             }
     }
-
 
     private fun editProfile(
         name: String,

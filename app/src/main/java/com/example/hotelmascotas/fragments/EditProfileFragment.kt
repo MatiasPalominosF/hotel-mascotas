@@ -53,6 +53,8 @@ class EditProfileFragment : Fragment() {
         auth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
 
+
+
         //Argumentos obtenidos del fragmento MenuFragment con los datos del usuario.
         val name = this.arguments!!.getString("name")
         val lastname = this.arguments!!.getString("lastname")
