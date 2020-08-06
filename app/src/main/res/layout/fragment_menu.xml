@@ -123,12 +123,12 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
+                    android:layout_marginTop="20dp"
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginTop="3dp"
                         android:src="@drawable/ic_person"
@@ -137,7 +137,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="7dp"
+                        android:layout_marginStart="15dp"
                         android:layout_marginTop="10dp"
                         android:text="Mi perfil"
                         android:textSize="18sp"
@@ -152,8 +152,8 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginTop="10dp"
                         android:src="@drawable/ic_dog_paw"
@@ -162,7 +162,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="7dp"
+                        android:layout_marginStart="14dp"
                         android:layout_marginTop="10dp"
                         android:text="Mis mascotas"
                         android:textSize="18sp"
@@ -177,10 +177,11 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginTop="10dp"
+                        android:layout_marginBottom="3dp"
                         android:background="@drawable/circle_red"
                         android:src="@drawable/ic_baseline_star_border_24"
                         android:tint="@color/white" />
@@ -188,7 +189,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="7dp"
+                        android:layout_marginStart="14dp"
                         android:layout_marginTop="10dp"
                         android:text="Ser un anfitrión"
                         android:textSize="18sp"
@@ -203,8 +204,8 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginTop="10dp"
                         android:src="@drawable/ic_video"
@@ -213,7 +214,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="7dp"
+                        android:layout_marginStart="13dp"
                         android:layout_marginTop="10dp"
                         android:text="¿Cómo funciona?"
                         android:textSize="18sp"
@@ -224,21 +225,22 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginTop="10dp"
+                        android:layout_marginBottom="4dp"
                         android:src="@drawable/ic_baseline_help_outline_24"
                         android:tint="@color/colorIcons" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="7dp"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:layout_marginStart="15dp"
                         android:layout_marginTop="10dp"
                         android:text="Ayuda"
                         android:textSize="18sp"
@@ -250,21 +252,21 @@
                     android:id="@+id/cerrarSesionFR"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
+                    android:layout_marginBottom="20dp"
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
                         android:layout_marginStart="30dp"
-                        android:layout_marginTop="10dp"
                         android:src="@drawable/ic_close"
                         android:tint="@color/colorIcons" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="7dp"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:layout_marginStart="13dp"
                         android:layout_marginTop="10dp"
                         android:text="Cerrar sesión"
                         android:textSize="18sp"
