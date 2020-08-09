@@ -1,14 +1,11 @@
 package com.example.hotelmascotas
 
-class Mascota (nombre:String, foto:Int, raza:String) {
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 
-    var nombre:String =""
-    var foto:Int = 0
-    var raza:String = ""
-
-    init {
-        this.nombre = nombre
-        this.foto = foto
-        this.raza = raza
-    }
-}
+@Parcelize
+data class Mascota(
+    val nombre: String = "",
+    val foto: String = "",
+    val raza: String = ""
+) : Parcelable
