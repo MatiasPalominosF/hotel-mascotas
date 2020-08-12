@@ -1,17 +1,17 @@
 package com.example.hotelmascotas
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.example.hotelmascotas.model.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.FirebaseFirestore
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -21,10 +21,10 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var txtEmail: EditText
     private lateinit var txtPassword: EditText
     private lateinit var progressBar: ProgressBar
+    private val users = hashMapOf<String?, Any?>()
+    private val users2 = User()
 
-    //Atributos de Firebase.
-    private lateinit var dbReference: DatabaseReference
-    private lateinit var database: FirebaseDatabase
+    private lateinit var db: FirebaseFirestore
     private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,46 +35,74 @@ class RegisterActivity : AppCompatActivity() {
         txtEmail = findViewById(R.id.txtEmail)
         txtPassword = findViewById(R.id.txtPassword)
 
+        db = FirebaseFirestore.getInstance()
         progressBar = findViewById(R.id.progressBar)
-        database = FirebaseDatabase.getInstance()
+        progressBar.visibility = View.INVISIBLE
         auth = FirebaseAuth.getInstance()
 
-        //Se obtiene la referencia de la BD para escribir en ella.
-        dbReference = database.reference.child("User")
     }
 
     fun register(view: View) {
-        createNewAccount()
+        createNewAccount2()
     }
 
-    //Función que crear una nueva cuenta.
-    private fun createNewAccount() {
+    private fun createNewAccount2() {
+
         val name: String = txtName.text.toString()
         val lastName: String = txtLastName.text.toString()
         val email: String = txtEmail.text.toString()
         val password: String = txtPassword.text.toString()
+        users.put("name", name)
+        users.put("lastname", lastName)
+        users.put("email", email)
+        users.put("password", password)
 
-        if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(lastName) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)) {
+        val user2 = User(name, lastName, email, password)
+
+
+        if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(lastName) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(
+                password
+            )
+        ) {
             progressBar.visibility = View.VISIBLE
             auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isComplete) {
+                        //Envía mensaje de verificación al correo
                         val user: FirebaseUser? = auth.currentUser
+                        println("USUARIO!!!!!!!!!!!!!!!: " + user?.uid.toString())
                         verifyEmail(user)
 
-                        val userBD = dbReference.child(user?.uid!!)
+                        var uidUser = user?.uid.toString()
+                        val usersDB = db.collection("users")
+                        usersDB.document(uidUser).set(user2).addOnSuccessListener {
+                            Toast.makeText(
+                                this,
+                                "Usuario agregado correctamente",
+                                Toast.LENGTH_LONG
+                            ).show()
+                            action()
+                        }.addOnFailureListener {
+                            println("IIIIIIIIIIIIIIIIIIIIT2: " + it)
+                        }
 
-                        println("La referencia de la BD es: " + userBD.database.getReference())
-                        userBD.child("Name").setValue(name)
-                        userBD.child("LastName").setValue(lastName)
-                        println("Nombre: " + name)
-                        println("Apellido: " + lastName)
-                        println("esto imprimió " + userBD.child("Name").setValue(name))
-                        println("esto imprimió " + userBD.child("LastName").setValue(lastName))
-                        action()
+                        // Add a new document with a generated ID
+                        /*db.collection("users")
+                            .add(users)
+                            .addOnSuccessListener { documentReference ->
+                                Log.d(
+                                    "Exito",
+                                    "DocumentSnapshot added with ID: ${documentReference.id}"
+                                )
+                                action()
+                            }
+                            .addOnFailureListener { e ->
+                                Log.w("Error", "Error adding document", e)
+                            }*/
                     }
                 }
         }
+
     }
 
     private fun action() {

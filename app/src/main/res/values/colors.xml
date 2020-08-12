@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
+    <color name="colorPrimaryDark">#151515</color>
+    <color name="colorAccent">#FF5252</color>
+    <color name="colorPrimaryText">#212121</color>
+    <color name="colorBackground">#ECECEC</color>
+    <color name="colorSemiDark">#90000000</color>
+    <color name="solidCircle">#80FFFFFF</color>
+    <color name="borderCircle">#30FFFFFF</color>
+    <color name="gradEnd">#FF5252</color>
+    <color name="gradStart">#FFA052</color>
+    <color name="colorIcons">#504F4F</color>
+    <color name="colorDivider">#D6D6D6</color>
+
+
+    <color name="colorPrimaryN">#131EEA</color>
+    <color name="colorPrimaryDarkN">#131EEA</color>
+    <color name="colorAccentN">#F13413</color>
+    <color name="colorLayerDark">#D6000000</color>
+    <color name="colorLayerSemiDark">#60000000</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorTextPrimary">#212121</color>
+    <color name="colorTextHint">#808080</color>
+    <color name="placeholder_bg">#dddddd</color>
+    <color name="gray">#17191D</color>
+
+    <color name="white">#ffffff</color>
 </resources>
