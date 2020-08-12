@@ -6,9 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.hotelmascotas.fragments.HomeFragment
 import com.example.hotelmascotas.fragments.MenuFragment
-import com.example.hotelmascotas.fragments.MisMacotasFragment
+import com.example.hotelmascotas.fragments.MisMascotasFragment
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_dashboard.*
@@ -18,7 +17,7 @@ class Dashboard : AppCompatActivity() {
 
     private lateinit var homeFragment: HomeFragment
     private lateinit var menuFragment: MenuFragment
-    private lateinit var misMascotasFragment: MisMacotasFragment
+    private lateinit var misMascotasFragment: MisMascotasFragment
     private lateinit var auth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
     private lateinit var bundle: Bundle
@@ -28,7 +27,7 @@ class Dashboard : AppCompatActivity() {
         setContentView(R.layout.activity_dashboard)
         homeFragment = HomeFragment()
         menuFragment = MenuFragment()
-        misMascotasFragment = MisMacotasFragment()
+        misMascotasFragment = MisMascotasFragment()
         auth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
         bundle = Bundle()
