@@ -4,6 +4,9 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.example.hotelmascotas.fragments.HomeFragment
 import com.example.hotelmascotas.fragments.MenuFragment
 import com.example.hotelmascotas.fragments.MisMascotasFragment
@@ -32,17 +35,9 @@ class Dashboard : AppCompatActivity() {
         db = FirebaseFirestore.getInstance()
         bundle = Bundle()
 
-        makeCurrentFragment(homeFragment)
+        val navController: NavController = findNavController(R.id.nav_host_fragment)
+        bottomNavigationView.setupWithNavController(navController)
 
-        bottomNavigationView.setOnNavigationItemSelectedListener {
-            when (it.itemId) {
-                R.id.navigationHome -> makeCurrentFragment(homeFragment)
-                R.id.navigationMascotas -> makeCurrentFragment(misMascotasFragment)
-                R.id.navigationMenu -> makeCurrentFragmentWithInfo(menuFragment)
-                R.id.navigationPedidos -> pruebas()
-            }
-            true
-        }
     }
 
 
@@ -89,18 +84,11 @@ class Dashboard : AppCompatActivity() {
 
                     fragment.arguments = bundle
 
-                    supportFragmentManager.beginTransaction().replace(R.id.fl_wrapper, fragment)
-                        .commit()
-
 
                 }
 
             }
         }
     }
-
-    private fun makeCurrentFragment(fragment: Fragment) =
-        supportFragmentManager.beginTransaction().replace(R.id.fl_wrapper, fragment)
-            .commit()
 }
 

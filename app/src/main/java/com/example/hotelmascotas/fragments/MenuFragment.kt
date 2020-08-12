@@ -1,189 +1,70 @@
+@file:Suppress("DEPRECATION")
+
 package com.example.hotelmascotas.fragments
 
+import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
+import androidx.navigation.fragment.findNavController
 import com.example.hotelmascotas.LoginActivity
 import com.example.hotelmascotas.R
+import com.example.hotelmascotas.model.User
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.fragment_menu.*
 
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "name"
-private const val ARG_PARAM2 = "lastname"
-private const val ARG_PARAM3 = "email"
-private const val ARG_PARAM4 = "password"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [MenuFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class MenuFragment : Fragment() {
-
 
     private lateinit var auth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
-    val MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 123
-    private lateinit var bundle: Bundle
-    private lateinit var editProfileFragment: EditProfileFragment
-
-
-    // TODO: Rename and change types of parameters
-    private var name: String? = null
-    private var lastname: String? = null
-    private var email: String? = null
-    private var password: String? = null
-    private val RC_SELECT_IMG = 2
-    private lateinit var selectedImageBytes: ByteArray
-    private var pictureJustChange = false
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            name = it.getString(ARG_PARAM1)
-            lastname = it.getString(ARG_PARAM2)
-            email = it.getString(ARG_PARAM3)
-            password = it.getString(ARG_PARAM4)
-        }
-    }
+    private lateinit var progressDialog: ProgressDialog
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_menu, container, false)
+        this.progressDialog = ProgressDialog(requireContext())
+        this.progressDialog.show()
+        this.progressDialog.setContentView(R.layout.progress_dialog)
+        this.progressDialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        return inflater.inflate(R.layout.fragment_menu, container, false)
+    }
 
-        println("Fragment manager of Menu: " + fragmentManager)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        this.auth = FirebaseAuth.getInstance()
+        this.db = FirebaseFirestore.getInstance()
 
-        val name = this.arguments!!.getString("name")
-        val lastname = this.arguments!!.getString("lastname")
-        val email = this.arguments!!.getString("email")
-        val password = this.arguments!!.getString("password")
-
-
-        //Atributos para pasar datos entre fragmentos
-        bundle = Bundle()
-        editProfileFragment = EditProfileFragment()
-        val manager2 = activity!!.supportFragmentManager
-        val manager = fragmentManager
-        //Fin atributos
-
-        auth = FirebaseAuth.getInstance()
-
-        val btnLogout = view.findViewById<View>(R.id.cerrarSesionFR) as LinearLayout
-        val mtextViewUserName = view.findViewById<View>(R.id.textViewUserName) as TextView
-        val btnEditProfile = view.findViewById<View>(R.id.edit_profile) as LinearLayout
-
-        btnEditProfile.setOnClickListener {
-            //TODO: Insert function that edit profile.
-            if (name != null && lastname != null && email != null && password != null && manager != null) {
-                editProfile(name, lastname, email, password, editProfileFragment, manager, manager2)
-            }
-        }
-
-
-        mtextViewUserName.text = "$name $lastname"
-        btnLogout.setOnClickListener {
+        cargarDatos()
+        cerrarSesionFR.setOnClickListener {
             cerrarSesion()
             finishActivity()
         }
-        return view
+
+        edit_profile.setOnClickListener {
+            findNavController().navigate(R.id.editProfileFragment)
+        }
     }
 
-    /*override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == RC_SELECT_IMG && resultCode == Activity.RESULT_OK && data != null && data.data != null) {
-            val selectedImagePath = data.data
-            val selectedImageBmp =
-                MediaStore.Images.Media.getBitmap(activity?.contentResolver, selectedImagePath)
-            val outPutStream = ByteArrayOutputStream()
-            selectedImageBmp.compress(Bitmap.CompressFormat.JPEG, 90, outPutStream)
-            selectedImageBytes = outPutStream.toByteArray()
+    private fun cargarDatos() {
+        val docRef = db.collection("users").document(auth.uid.toString())
+        docRef.get().addOnCompleteListener {
+            if (it.isSuccessful) {
+                val document: DocumentSnapshot? = it.result
+                if (document!!.exists()) {
+                    val name = document.getString("name")
+                    val lastname = document.getString("lastname")
 
-            Glide.with(this)
-                .load(selectedImageBytes).into(imageViewMenu)
-
-            pictureJustChange = true
-        }
-    }*/
-
-
-    /*override fun onStart() {
-        super.onStart()
-        FirestoreUtil.getCurrentUser { user ->
-            if (this@MenuFragment.isVisible) {
-                textViewUserName.setText(user.name)
-                if (!pictureJustChange && user.profilePicturePath != null)
-                    Glide.with(this).load(StorageUtil.pathToReference(user.profilePicturePath))
-                        .into(imageViewMenu)
-            }
-        }
-    }*/
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param name Parameter 1.
-         * @param lastname Parameter 2.
-         * @param email Parameter 3.
-         * @param password Parameter 4.
-         * @return A new instance of fragment MenuFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(name: String, lastname: String, email: String, password: String) =
-            MenuFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, name)
-                    putString(ARG_PARAM2, lastname)
-                    putString(ARG_PARAM3, email)
-                    putString(ARG_PARAM4, password)
+                    textViewUserName.text = "$name $lastname"
+                    this.progressDialog.dismiss()
                 }
             }
-    }
-
-    private fun editProfile(
-        name: String,
-        lastname: String,
-        email: String,
-        password: String,
-        fragment: Fragment,
-        manager: FragmentManager,
-        manager2: FragmentManager
-    ) {
-        println("UID en profile: " + auth.uid)
-
-        bundle.putString("name", name)
-        bundle.putString("lastname", lastname)
-        bundle.putString("email", email)
-        bundle.putString("password", password)
-
-        fragment.arguments = bundle
-
-        val fragTransaction2 = manager2.beginTransaction()
-        val fragTransaction = manager.beginTransaction()
-
-        fragTransaction2.replace(R.id.linear_profile_view, fragment).addToBackStack(null).commit()
-        /*fragTransaction.replace(R.id.linear_profile_view, fragment)
-            .commit()*/
-
-        /*fragTransaction.apply {
-            replace(R.id.linear_profile_view, fragment)
-            commit()
-        }*/
-
+        }
 
     }
 
@@ -196,16 +77,6 @@ class MenuFragment : Fragment() {
     }
 
     private fun finishActivity() {
-        if (activity != null) {
-            activity!!.finish()
-        }
+        activity?.finish()
     }
-
-
-    private fun getInfoUser() {
-
-
-    }
-
-
 }

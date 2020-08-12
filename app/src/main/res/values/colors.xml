@@ -11,7 +11,7 @@
     <color name="gradEnd">#FF5252</color>
     <color name="gradStart">#FFA052</color>
     <color name="colorIcons">#504F4F</color>
-
+    <color name="colorDivider">#D6D6D6</color>
 
 
     <color name="colorPrimaryN">#131EEA</color>
@@ -22,6 +22,8 @@
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorTextPrimary">#212121</color>
     <color name="colorTextHint">#808080</color>
+    <color name="placeholder_bg">#dddddd</color>
+    <color name="gray">#17191D</color>
 
     <color name="white">#ffffff</color>
 </resources>

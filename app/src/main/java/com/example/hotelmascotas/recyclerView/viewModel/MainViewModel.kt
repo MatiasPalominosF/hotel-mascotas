@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.example.hotelmascotas.Mascota
 import com.example.hotelmascotas.domain.RepoImpl
 
-class MainViewModel: ViewModel() {
+class MainViewModel : ViewModel() {
     private val repo = RepoImpl()
 
     fun fetchDataMascotas(): LiveData<MutableList<Mascota>> {

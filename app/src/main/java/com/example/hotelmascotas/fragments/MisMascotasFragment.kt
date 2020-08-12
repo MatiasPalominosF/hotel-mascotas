@@ -48,8 +48,11 @@ class MisMascotasFragment : Fragment(), AdaptadorCustom.OnOrderClickListener {
     }
 
     private fun observeData() {
+        shimmer_view_container.startShimmer()
         viewModel.fetchDataMascotas().observe(viewLifecycleOwner, Observer {
             Log.d("DATOS", "$it")
+            shimmer_view_container.stopShimmer()
+            shimmer_view_container.visibility = View.GONE
             adapter.setListData(it)
             adapter.notifyDataSetChanged()
         })
