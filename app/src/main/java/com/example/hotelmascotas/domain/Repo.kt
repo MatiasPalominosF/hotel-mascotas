@@ -1,7 +1,7 @@
 package com.example.hotelmascotas.domain
 
 import androidx.lifecycle.LiveData
-import com.example.hotelmascotas.Mascota
+import com.example.hotelmascotas.model.Mascota
 import com.example.hotelmascotas.model.Hotel
 
 interface Repo {

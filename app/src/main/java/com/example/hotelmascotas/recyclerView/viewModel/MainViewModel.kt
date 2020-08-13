@@ -3,7 +3,7 @@ package com.example.hotelmascotas.recyclerView.viewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.hotelmascotas.Mascota
+import com.example.hotelmascotas.model.Mascota
 import com.example.hotelmascotas.domain.RepoImpl
 import com.example.hotelmascotas.model.Hotel
 

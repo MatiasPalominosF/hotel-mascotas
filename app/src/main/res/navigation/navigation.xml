@@ -27,7 +27,11 @@
         android:id="@+id/misMascotasFragment"
         android:name="com.example.hotelmascotas.fragments.MisMascotasFragment"
         android:label="fragment_mis_mascotas"
-        tools:layout="@layout/fragment_mis_mascotas" />
+        tools:layout="@layout/fragment_mis_mascotas" >
+        <action
+            android:id="@+id/action_misMascotasFragment_to_resgistrarMascotaFragment"
+            app:destination="@id/resgistrarMascotaFragment" />
+    </fragment>
     <fragment
         android:id="@+id/menuFragment"
         android:name="com.example.hotelmascotas.fragments.MenuFragment"
@@ -47,6 +51,11 @@
         android:name="com.example.hotelmascotas.fragments.EditProfileFragment"
         android:label="fragment_profile_edit"
         tools:layout="@layout/fragment_profile_edit" />
+    <fragment
+        android:id="@+id/resgistrarMascotaFragment"
+        android:name="com.example.hotelmascotas.fragments.ResgistrarMascotaFragment"
+        android:label="fragment_resgistrar_mascota"
+        tools:layout="@layout/fragment_resgistrar_mascota" />
     <fragment
         android:id="@+id/alojamientoFragment"
         android:name="com.example.hotelmascotas.fragments.HotelFragment"
