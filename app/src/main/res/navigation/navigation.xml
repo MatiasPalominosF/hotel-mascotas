@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_homeFragment_to_menuFragment"
             app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_alojamientoFragment"
+            app:destination="@id/alojamientoFragment" />
     </fragment>
     <fragment
         android:id="@+id/misMascotasFragment"
@@ -53,4 +56,18 @@
         android:name="com.example.hotelmascotas.fragments.ResgistrarMascotaFragment"
         android:label="fragment_resgistrar_mascota"
         tools:layout="@layout/fragment_resgistrar_mascota" />
+    <fragment
+        android:id="@+id/alojamientoFragment"
+        android:name="com.example.hotelmascotas.fragments.HotelFragment"
+        android:label="fragment_alojamiento"
+        tools:layout="@layout/fragment_hotel" >
+        <action
+            android:id="@+id/action_alojamientoFragment_to_tomarAlojamientoFragment"
+            app:destination="@id/tomarAlojamientoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tomarAlojamientoFragment"
+        android:name="com.example.hotelmascotas.fragments.TomarAlojamientoFragment"
+        android:label="fragment_tomar_alojamiento"
+        tools:layout="@layout/fragment_tomar_alojamiento" />
 </navigation>
