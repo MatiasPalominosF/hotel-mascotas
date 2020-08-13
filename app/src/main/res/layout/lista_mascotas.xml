@@ -46,18 +46,26 @@
             android:layout_marginStart="10dp">
         </TextView>
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageButton
+            android:id="@+id/delete_button"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:text="Editar"
-            android:layout_alignParentRight="true" />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/ic_delete"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@android:color/holo_red_dark"
+            />
+        <ImageButton
+            android:id="@+id/edit_button"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:text="Eliminar"
-            android:layout_below="@id/button2"
-            android:layout_alignParentRight="true"/>
+            android:layout_below="@id/delete_button"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/ic_edit"
+            android:backgroundTint="@android:color/holo_orange_dark"/>
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

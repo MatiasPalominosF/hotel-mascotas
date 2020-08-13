@@ -8,9 +8,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.hotelmascotas.Mascota
+import com.example.hotelmascotas.model.Mascota
 import com.example.hotelmascotas.R
 import com.example.hotelmascotas.recyclerView.adapter.AdaptadorCustom
 import com.example.hotelmascotas.recyclerView.viewModel.MainViewModel
@@ -42,9 +43,12 @@ class MisMascotasFragment : Fragment(), AdaptadorCustom.OnOrderClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupRecyclerView()
-        adapter = AdaptadorCustom(requireContext(), this)
+        adapter = AdaptadorCustom(requireContext(), this, this)
         recyclerViewMascotas.adapter = adapter
         observeData()
+        registrar_mascota.setOnClickListener {
+            findNavController().navigate(R.id.resgistrarMascotaFragment)
+        }
     }
 
     private fun observeData() {
@@ -76,5 +80,7 @@ class MisMascotasFragment : Fragment(), AdaptadorCustom.OnOrderClickListener {
         Log.d("BUNDLE", "$bundle")
 
     }
+
+
 
 }

@@ -3,7 +3,7 @@ package com.example.hotelmascotas.domain
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.hotelmascotas.Mascota
+import com.example.hotelmascotas.model.Mascota
 import com.google.firebase.firestore.FirebaseFirestore
 
 class RepoImpl : Repo {
@@ -13,10 +13,16 @@ class RepoImpl : Repo {
             val listData = mutableListOf<Mascota>()
             Log.d("RESULTA", "$result")
             for (document in result) {
+                val id = document.id.toString()
                 val image = document.getString("foto")
                 val name = document.getString("nombre")
                 val raza = document.getString("raza")
-                val mascota = Mascota(name!!, image!!, raza!!)
+                val mascota = Mascota(
+                    id!!,
+                    name!!,
+                    image!!,
+                    raza!!
+                )
                 Log.d("Mascota", "$mascota")
                 listData.add(mascota)
             }
