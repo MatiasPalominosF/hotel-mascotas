@@ -60,5 +60,14 @@
         android:id="@+id/tomarAlojamientoFragment"
         android:name="com.example.hotelmascotas.fragments.TomarAlojamientoFragment"
         android:label="fragment_tomar_alojamiento"
-        tools:layout="@layout/fragment_tomar_alojamiento" />
+        tools:layout="@layout/fragment_tomar_alojamiento" >
+        <action
+            android:id="@+id/action_tomarAlojamientoFragment_to_mapsActivity"
+            app:destination="@id/mapsActivity" />
+    </fragment>
+    <activity
+        android:id="@+id/mapsActivity"
+        android:name="com.example.hotelmascotas.MapsActivity"
+        android:label="activity_maps"
+        tools:layout="@layout/activity_maps" />
 </navigation>
