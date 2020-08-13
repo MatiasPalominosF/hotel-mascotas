@@ -25,6 +25,7 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.firestore.FirebaseFirestore
 import java.io.IOException
 
@@ -44,6 +45,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+        val fab = findViewById<FloatingActionButton>(R.id.fab)
+        fab.setOnClickListener {
+            loadPlacePicker()
+        }
+
     }
 
 
@@ -68,6 +74,20 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
 
     companion object {
         private const val LOCATION_PERMISSION_REQUEST_CODE = 1
+        private const val PLACE_PICKER_REQUEST = 3
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == PLACE_PICKER_REQUEST) {
+            if (resultCode == RESULT_OK) {
+                val place = PlacePicker.getPlace(this, data)
+                var addressText = place.name.toString()
+                addressText += "\n" + place.address.toString()
+
+                placeMarkerOnMap(place.latLng)
+            }
+        }
 
     }
 
@@ -147,6 +167,18 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
 
         Log.d("DIRECCION", "La dirección es: $addressText")
         return addressText
+    }
+
+    private fun loadPlacePicker() {
+        val builder = PlacePicker.IntentBuilder()
+
+        try {
+            startActivityForResult(builder.build(this@MapsActivity), PLACE_PICKER_REQUEST)
+        } catch (e: GooglePlayServicesRepairableException) {
+            e.printStackTrace()
+        } catch (e: GooglePlayServicesNotAvailableException) {
+            e.printStackTrace()
+        }
     }
 
 
