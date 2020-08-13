@@ -103,18 +103,25 @@
                         android:orientation="horizontal"
                         android:gravity="center">
                         <ImageButton
+                            android:id="@+id/button_camera"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginRight="20dp"
                             android:src="@drawable/ic_camera"
                             android:tint="@color/colorIcons"
-                            android:background="@android:color/transparent"/>
+                            android:background="@android:color/transparent"
+                            android:clickable="true"
+                            android:foreground="?attr/selectableItemBackgroundBorderless"
+                            />
                         <ImageButton
+                            android:id="@+id/button_galery"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:src="@drawable/ic_photo"
                             android:tint="@color/colorIcons"
-                            android:background="@android:color/transparent"/>
+                            android:background="@android:color/transparent"
+                            android:clickable="true"
+                            android:foreground="?attr/selectableItemBackgroundBorderless"/>
 
                     </LinearLayout>
                 </LinearLayout>
@@ -145,15 +152,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@null"
-                        android:enabled="false"
                         android:hint="Nombre mascota"
-                        android:imeOptions="actionNext"
-                        android:inputType="none"
                         android:paddingStart="30dp"
                         android:paddingEnd="30dp"
                         android:textColor="@color/colorTextPrimary"
-                        android:textSize="15sp"
-                        tools:ignore="AutoFill" />
+                        android:textSize="15sp" />
                 </LinearLayout>
 
                 <View
@@ -185,15 +188,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@null"
-                        android:enabled="false"
                         android:hint="Raza"
-                        android:imeOptions="actionNext"
-                        android:inputType="none"
                         android:paddingStart="30dp"
                         android:paddingEnd="30dp"
                         android:textColor="@color/colorTextPrimary"
-                        android:textSize="15sp"
-                        tools:ignore="AutoFill" />
+                        android:textSize="15sp" />
                 </LinearLayout>
 
                 <View
@@ -215,7 +214,8 @@
                     android:layout_marginBottom="20dp"
                     android:background="@drawable/btn_type2"
                     android:text="Aceptar"
-                    android:textColor="@drawable/txt_btn_type2" />
+                    android:textColor="@drawable/txt_btn_type2"
+                    />
 
 
             </LinearLayout>
